@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body class="h-screen w-screen bg-zinc-800">
+    <form
+      method="post"
+      action="/create"
+      class="bg-zinc-700 p-3 w-full h-fit text-white flex flex-col gap-2"
+    >
+      <input
+        class="w-full bg-zinc-900 rounded-sm w-full p-1"
+        placeholder="Name of Todo"
+        name="name"
+        type="text"
+      />
+      <textarea
+        name="data"
+        class="w-full bg-zinc-900 w-full p-1 rounded-sm resize-none"
+        placeholder="Enter the content of todo"
+        type="text"
+      ></textarea>
+      <button
+        class="px-3 py-1 w-fit bg-blue-600 rounded-sm select-none cursor-pointer"
+      >
+        Submit
+      </button>
+    </form>
+    <div
+      class="w-full h-fit flex flex-wrap gap-1 p-2 mt-2 bg-zinc-700 text-white"
+    >
+      <%= notes.length=== 0? 'Your notes will show up here' :''%> <%
+      notes.length > 0 && notes.forEach((each,index)=>{%>
+      <div
+        class="w-50 top-1 right-1 p-2 rounded-sm bg-zinc-800 flex flex-col justify-between"
+      >
+        <div class="relative w-full flex items-center py-2">
+          <a
+            href="/delete/<%=each.id.slice(0,each.id.length-4)%>"
+            class="absolute top-1 text-white right-1 material-symbols-outlined text-sm cursor-pointer select-none"
+          >
+            delete
+          </a>
+          <div class="font-bold line-clamp-2 text-xl">
+            <%=each.name.slice(0,each.name.length-4)%>
+          </div>
+        </div>
+        <div class="w-full flex justify-between items-end">
+          <a
+            href="/read/<%= each.id.slice(0,each.id.length-4)%>"
+            class="text-xs text-blue-500 cursor-pointer"
+            >Read More</a
+          >
+          <a
+            href="/edit/<%=each.id.slice(0,each.id.length-4)%>"
+            class="text-xs text-blue-300 cursor-pointer"
+            >Edit</a
+          >
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </body>
+</html>
