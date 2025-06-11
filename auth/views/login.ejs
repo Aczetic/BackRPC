@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="w-screen h-screen flex flex-col justify-center items-center">
+      <span class="w-full text-center font-bold text-xl">Login</span>
+      <form
+        action="/login"
+        method="post"
+        class="w-[20rem] flex flex-col gap-4 p-2 border-solid border-1 border-black rounded-sm"
+      >
+        <label class="w-full flex flex-col gap-1">
+          Email:
+          <input
+            name="email"
+            class="bg-zinc-100 p-1 rounded-sm border-1 border-solid boder-zinc-300"
+            type="email"
+            required
+            placeholder="enter your email"
+          />
+        </label>
+        <label class="w-full flex flex-col gap-1">
+          Password:
+          <input
+            name="password"
+            class="bg-zinc-100 p-1 rounded-sm border-1 border-solid boder-zinc-300"
+            type="password"
+            required
+            placeholder="enter your password"
+          />
+        </label>
+        <button
+          class="bg-black text-white rounded-sm text-center w-full p-1 cursor-pointer"
+        >
+          Submit
+        </button>
+      </form>
+      <div class="w-full p-2 flex gap-2 justify-center text-sm">
+        <span class="text-zinc-500">Don't have an account?</span
+        ><a class="font-bold text-zinc-800" href="/sign-up">Create Account</a>
+      </div>
+    </div>
+  </body>
+</html>

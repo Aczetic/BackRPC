@@ -1,0 +1,1 @@
+{"fullName":"dfas","email":"a@a.com","password":"12313","salt":"$2b$10$6lHE0vjsDGN5dnIAyp4R/e","hash":"$2b$10$6lHE0vjsDGN5dnIAyp4R/ehv7d6L1U6Y.YzGZ/18y/05o30HjtdZu"}
